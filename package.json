@@ -1,4 +1,13 @@
 {
+  "name": "Mosaico",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "webpack serve --mode=development",
+    "install:dev": "rm -rf node_modules && yarn install",
+    "lint": "eslint --fix",
+    "build:prod": "webpack --mode=production"
+  },
   "devDependencies": {
     "@babel/core": "^7.19.0",
     "@types/node": "^18.7.16",
@@ -17,6 +26,9 @@
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-unused-imports": "^2.0.0",
+    "file-loader": "^6.2.0",
+    "html-loader": "^4.1.0",
+    "html-webpack-plugin": "^5.5.0",
     "json-loader": "^0.5.7",
     "prettier": "^2.7.1",
     "ts-loader": "^9.3.1",
@@ -32,6 +44,7 @@
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.18.6",
     "axios": "^0.27.2",
+    "dotenv": "^16.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-query": "^3.39.2",
