@@ -1,9 +1,12 @@
 import React from 'react'
 import { QueryClientProvider } from 'react-query'
-import { BrowserRouter, Routes, Route, HashRouter } from 'react-router-dom'
-import LayoutProvider from './components/LayoutProvider'
-import Home from './pages/Home'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
 import queryClient from './services/queryClient'
+
+import LayoutProvider from './components/LayoutProvider'
+
+import Home from './pages/Home'
 
 const App: React.FC = () => {
     return (
