@@ -1,0 +1,40 @@
+{
+    "compilerOptions": {
+        "alwaysStrict": true,
+        "jsx": "react",
+        "target": "es5",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "sourceMap": true,
+        "pretty": true,
+        "skipLibCheck": true,
+        "removeComments": true,
+        "noFallthroughCasesInSwitch": true,
+        "forceConsistentCasingInFileNames": true,
+        "noImplicitAny": false,
+        "isolatedModules": false,
+        "esModuleInterop": true,
+        "rootDir": ".",
+        "baseUrl": ".",
+        "paths": {
+            "@app/*": ["./src/*"],
+            "@ds": ["./src/components/DesignSystem/index"],
+            "@components/*": ["./src/components/*"],
+            "@pages/*": ["./src/pages/*"],
+            "@services/*": ["./src/services/*"],
+            "@config/*": ["./config/*"],
+            "@constants/*": ["./config/constants/*"],
+            "@types/*": ["./config/types/*"]
+        },
+        "lib": ["es2017", "dom"],
+        "types": ["react", "node"]
+    },
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS"
+        }
+    },
+    "include": ["**/*", "src/@types"],
+    "exclude": ["node_modules", "dist"]
+}
