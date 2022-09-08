@@ -1,31 +1,28 @@
 const theme = {
     colors: {
         background: {
-            paper: '',
-            default: '',
+            paper: '#fff',
+            default: '#F6F6F6',
+        },
+        grey: {
+            dark: '#7F7F7F',
+            main: '#BABABA',
+            light: '#F3F3F3',
+            highlight: '#F6F6F6',
         },
         font: {
-            main: '',
-            disabled: '',
-            reverse: '',
+            main: '#000000',
+            secondary: '#7F7F7F',
+            reverse: '#fff',
+            // disabled: '',
+        },
+        accent: {
+            main: '#FFC120',
         },
         primary: {
-            main: '',
-        },
-        secondary: {
-            main: '',
-        },
-        success: {
-            main: '',
-        },
-        danger: {
-            main: '',
-        },
-        warning: {
-            main: '',
-        },
-        info: {
-            main: '',
+            main: '#0ACF83',
         },
     },
 }
+
+export default theme
