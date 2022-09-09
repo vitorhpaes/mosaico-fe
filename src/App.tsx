@@ -11,13 +11,15 @@ import queryClient from './services/queryClient'
 import LayoutProvider from './components/Layout/LayoutProvider'
 
 import Home from './pages/Home'
-import StyledMobileScreen from './components/StyledMobileScreen'
+import MobileScreenWrapper from './components/MobileScreenWrapper'
+import GlobalStyle from './assets/styles/GlobalStyles'
 
 const App: React.FC = () => {
     return (
         <QueryClientProvider client={queryClient}>
             <ThemeProvider theme={theme}>
-                <StyledMobileScreen isMobile={isMobile}>
+                <GlobalStyle />
+                <MobileScreenWrapper>
                     <BrowserRouter>
                         <Routes>
                             <Route path="/" element={<LayoutProvider />}>
@@ -25,7 +27,7 @@ const App: React.FC = () => {
                             </Route>
                         </Routes>
                     </BrowserRouter>
-                </StyledMobileScreen>
+                </MobileScreenWrapper>
             </ThemeProvider>
         </QueryClientProvider>
     )

@@ -137,6 +137,17 @@ module.exports = function build(_: any, args: WebpackArgumentsProps) {
             ],
             alias: {
                 react: path.join(__dirname, 'node_modules', 'react'),
+                '@app': path.join(__dirname, './src'),
+                '@ds': path.join(
+                    __dirname,
+                    './src/components/DesignSystem/index'
+                ),
+                '@components/*': path.join(__dirname, './src/components'),
+                '@pages/*': path.join(__dirname, './src/pages'),
+                '@services/*': path.join(__dirname, './src/services'),
+                '@config/*': path.join(__dirname, './config'),
+                '@constants/*': path.join(__dirname, './config/constants'),
+                '@types/*': path.join(__dirname, './config/type'),
             },
         },
     }
