@@ -7,4 +7,4 @@ export { default as Typography } from './Typography'
 export { default as Spacing } from './Spacing'
 
 // form elements
-export { default as TextField } from './TextField'
+export { default as TextField, TextFieldIconWrapper } from './TextField'
