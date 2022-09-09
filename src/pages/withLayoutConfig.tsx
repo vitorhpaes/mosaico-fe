@@ -9,7 +9,7 @@ const withLayoutConfig =
         const dispatch = useAppDispatch()
 
         if (currentNavbar !== navbar) {
-            dispatch(setNavbarType(navbar))
+            dispatch(setNavbarType(navbar ?? 'default'))
         }
 
         return page
