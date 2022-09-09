@@ -4,24 +4,29 @@ import theme from '@app/assets/styles/theme'
 declare module 'styled-components' {
     interface Palette {
         main: {
+            index: string
             primary: string
         }
         background: {
+            index: string
             paper: string
             default: string
         }
         grey: {
+            index: string
             dark: string
             main: string
             light: string
             highlight: string
         }
         font: {
+            index: string
             main: string
             secondary: string
             reverse: string
         }
         accent: {
+            index: string
             main: string
         }
     }
@@ -45,9 +50,28 @@ declare module 'styled-components' {
     }
     type SpacingKey = keyof Spacing
 
+    interface FontVariantProps {
+        tag: string
+        size: number
+        weight: number
+        color: string
+        transform?: 'uppercase' | 'lowercase'
+    }
+
+    interface TypographyProps {
+        default: FontVariantProps
+        title: FontVariantProps
+        subtitle: FontVariantProps
+        caption: FontVariantProps
+        body1: FontVariantProps
+        body2: FontVariantProps
+    }
+    type TypographyKey = keyof TypographyProps
+
     export interface DefaultTheme {
-        palette: Palette    
+        palette: Palette
         spacing: Spacing
+        typography: TypographyProps
         applySpace: (key: SpacingKey) => string
     }
 }
