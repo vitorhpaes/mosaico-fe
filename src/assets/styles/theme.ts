@@ -30,7 +30,7 @@ const theme: DefaultTheme = {
             main: '#FFC120',
         },
     },
-    spacing: {
+    space: {
         none: 0,
         nano: 2,
         micro: 4,
@@ -86,7 +86,7 @@ const theme: DefaultTheme = {
         },
     },
     applySpace(key) {
-        return `${this.spacing[key]}px`
+        return `${this.space[key]}px`
     },
 }
 

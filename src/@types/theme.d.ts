@@ -70,7 +70,7 @@ declare module 'styled-components' {
 
     export interface DefaultTheme {
         palette: Palette
-        spacing: Spacing
+        space: Spacing
         typography: TypographyProps
         applySpace: (key: SpacingKey) => string
     }
