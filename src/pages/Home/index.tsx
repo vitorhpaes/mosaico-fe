@@ -5,6 +5,8 @@ import { Chip, ChipRow, Spacing, Typography } from '@ds'
 import PageContainer from '@components/Layout/PageContainer'
 import SearchInput from '@components/SearchInput'
 import SectionContainer from '@components/SectionContainer'
+import { ProductCard } from '@app/components/ProductCard'
+import images from '@images/urls.json'
 
 const Home: React.FC = () => {
     return (
@@ -25,6 +27,16 @@ const Home: React.FC = () => {
                     <Chip label="Earpads" disabled />
                     <Chip label="Cable" disabled />
                 </ChipRow>
+
+                <Spacing my={'large'}>
+                    <ProductCard
+                        product={{
+                            name: 'TMA-2 Modular Headphone',
+                            link: 'https://google.com',
+                            picture: images.headphone,
+                        }}
+                    />
+                </Spacing>
             </SectionContainer>
         </>
     )
