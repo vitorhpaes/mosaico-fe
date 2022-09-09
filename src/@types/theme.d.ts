@@ -46,7 +46,7 @@ declare module 'styled-components' {
     type SpacingKey = keyof Spacing
 
     export interface DefaultTheme {
-        palette: Colors
+        palette: Palette    
         spacing: Spacing
         applySpace: (key: SpacingKey) => string
     }
