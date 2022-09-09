@@ -1,5 +1,5 @@
 import styled, { SpacingKey } from 'styled-components'
-import { space, SpaceProps } from 'styled-system'
+import { space, SpaceProps, flexbox, FlexboxProps } from 'styled-system'
 
 interface SystemSpacingProps {
     m?: SpacingKey
@@ -36,6 +36,12 @@ interface SystemSpacingProps {
     paddingRight?: SpacingKey
 }
 
-const Spacing = styled.div<SystemSpacingProps & SpaceProps>(space)
+const Spacing = styled.div<SystemSpacingProps & SpaceProps & FlexboxProps>(
+    space,
+    {
+        display: 'flex',
+    },
+    flexbox
+)
 
 export default Spacing
