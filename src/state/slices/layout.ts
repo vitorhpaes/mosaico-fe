@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit"
 import type { PayloadAction } from '@reduxjs/toolkit'
 
-type MenuOptions = 'stack' | 'default' | 'custom'
+export type NavbarOptions = 'stack' | 'default' | 'custom'
 
-interface LayoutState {
-    navbar: MenuOptions
+export interface LayoutState {
+    navbar: NavbarOptions
 }
 
 const initialState: LayoutState = {
@@ -15,7 +15,7 @@ export const layoutSlice = createSlice({
     name: 'layout',
     initialState,
     reducers: {
-        setNavbarType(state, action: PayloadAction<MenuOptions>) {
+        setNavbarType(state, action: PayloadAction<NavbarOptions>) {
             state.navbar = action.payload
         },
     },
