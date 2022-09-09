@@ -24,7 +24,8 @@ const StyledChip = styled.div<StyledChipProps>`
     align-items: center;
     justify-content: space-around;
 
-    color: ${({ theme, fontColor, disabled }) => !disabled ? fontColor : theme.palette.font.secondary};
+    color: ${({ theme, fontColor, disabled }) =>
+        !disabled ? fontColor : theme.palette.font.secondary};
 
     border-radius: 30px;
 
@@ -34,6 +35,10 @@ const StyledChip = styled.div<StyledChipProps>`
     padding-right: ${({ theme, spacingX }) => theme.applySpace(spacingX)};
     padding-top: ${({ theme, spacingY }) => theme.applySpace(spacingY)};
     padding-bottom: ${({ theme, spacingY }) => theme.applySpace(spacingY)};
+
+    * {
+        white-space: nowrap;
+    }
 `
 
 interface SpacingMapChild {
