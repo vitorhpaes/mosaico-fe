@@ -1,23 +1,32 @@
 import React from 'react'
 import withLayoutConfig from '../withLayoutConfig'
-import { Spacing, TextField, TextFieldIconWrapper, Typography } from '@ds'
-
-import { FiSearch } from 'react-icons/fi'
+import { Chip, ChipRow, Spacing, Typography } from '@ds'
 
 import PageContainer from '@components/Layout/PageContainer'
-import SearchInput from '@app/components/SearchInput'
+import SearchInput from '@components/SearchInput'
+import SectionContainer from '@components/SectionContainer'
 
 const Home: React.FC = () => {
     return (
-        <PageContainer>
-            <Typography variant="subtitle">Hi, Andrea</Typography>
-            <Typography variant="title" size={24} transform={'none'}>
-                What are you looking for today?
-            </Typography>
-            <Spacing my="large">
-                <SearchInput />
-            </Spacing>
-        </PageContainer>
+        <>
+            <PageContainer>
+                <Typography variant="subtitle">Hi, Andrea</Typography>
+                <Typography variant="title" size={24} transform={'none'}>
+                    What are you looking for today?
+                </Typography>
+                <Spacing my="large">
+                    <SearchInput />
+                </Spacing>
+            </PageContainer>
+            <SectionContainer pr="0" height="100%">
+                <ChipRow>
+                    <Chip label="Headphone" />
+                    <Chip label="Headband" disabled />
+                    <Chip label="Earpads" disabled />
+                    <Chip label="Cable" disabled />
+                </ChipRow>
+            </SectionContainer>
+        </>
     )
 }
 
