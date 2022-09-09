@@ -10,7 +10,7 @@ interface StyledTypographyProps {
     color?: PaletteKey
     size?: number
     weight?: number
-    transform?: 'uppercase' | 'lowercase'
+    transform?: 'uppercase' | 'lowercase' | 'none'
     variant?: TypographyKey
 }
 

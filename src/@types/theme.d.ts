@@ -55,7 +55,7 @@ declare module 'styled-components' {
         size: number
         weight: number
         color: string
-        transform?: 'uppercase' | 'lowercase'
+        transform?: 'uppercase' | 'lowercase' | 'none'
     }
 
     interface TypographyProps {
