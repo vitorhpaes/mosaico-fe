@@ -54,7 +54,7 @@ const spacingMap: SpacingMapProps = {
     },
     md: {
         Y: 'micro',
-        X: 'medium',
+        X: 'standard',
     },
     lg: {
         Y: 'small',

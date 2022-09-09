@@ -13,7 +13,7 @@ const StyledChipRow = styled.div`
         display: none;
     }
 
-    gap: ${({ theme }) => theme.applySpace('medium')};
+    gap: ${({theme}) => theme.applySpace('small')};
 `
 
 export default StyledChipRow
