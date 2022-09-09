@@ -3,14 +3,21 @@ import styled from 'styled-components'
 import DefaultNavbar from './DefaultNavbar'
 
 const StyledNavbar = styled.nav`
-    background-color: ${({ theme }) => theme.palette.background.paper};
-    width: 100%;
-    height: ${({ theme }) => theme.applySpace('largeXX')};
-    padding-left: ${({ theme }) => theme.applySpace('large')};
-    padding-right: ${({ theme }) => theme.applySpace('large')};
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    background-color: ${({ theme }) => theme.palette.background.paper};
+    
+    width: 100%;
+    height: ${({ theme }) => theme.applySpace('largeXX')};
+
+    padding-left: ${({ theme }) => theme.applySpace('large')};
+    padding-right: ${({ theme }) => theme.applySpace('large')};
+
+    padding-top: ${({ theme }) => theme.applySpace('small')};
+
+    margin-bottom: ${({ theme }) => theme.applySpace('large')};
 `
 
 interface NavbarProps {

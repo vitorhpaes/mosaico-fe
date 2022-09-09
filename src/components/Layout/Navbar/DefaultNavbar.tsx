@@ -11,7 +11,7 @@ const DefaultNavbar: React.FC = () => {
         <Navbar>
             <CgMenuLeft size={20} />
             <img src={logo} />
-            <Avatar src={images.brother} size={'large'} />
+            <Avatar src={images.brother} size={'largeX'} />
         </Navbar>
     )
 }
