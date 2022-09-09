@@ -143,12 +143,12 @@ module.exports = function build(_: any, args: WebpackArgumentsProps) {
                     __dirname,
                     './src/components/DesignSystem/index'
                 ),
-                '@components/*': path.join(__dirname, './src/components'),
-                '@pages/*': path.join(__dirname, './src/pages'),
-                '@services/*': path.join(__dirname, './src/services'),
-                '@config/*': path.join(__dirname, './config'),
-                '@constants/*': path.join(__dirname, './config/constants'),
-                '@types/*': path.join(__dirname, './config/type'),
+                '@components': path.join(__dirname, './src/components'),
+                '@pages': path.join(__dirname, './src/pages'),
+                '@services': path.join(__dirname, './src/services'),
+                '@config': path.join(__dirname, './config'),
+                '@constants': path.join(__dirname, './config/constants'),
+                '@types': path.join(__dirname, './config/type'),
             },
         },
     }
