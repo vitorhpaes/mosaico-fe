@@ -4,15 +4,7 @@ import styled from 'styled-components'
 import { Link, Spacing, Typography } from '@ds'
 import { FiArrowRight } from 'react-icons/fi'
 
-import { StyledCard } from './../index'
-
-interface ProductHorizontalCardProps {
-    product: {
-        name: string
-        picture: string
-        link: string
-    }
-}
+import { ProductCardProps, StyledCard } from './../index'
 
 const StyledCardRow = styled.div`
     max-width: 100%;
@@ -36,7 +28,7 @@ const StyledTextContent = styled.div`
     justify-content: space-between;
 `
 
-const HorizontalCard: React.FC<ProductHorizontalCardProps> = ({ product }) => {
+const HorizontalCard: React.FC<ProductCardProps> = ({ product }) => {
     return (
         <StyledCard px="large" py={20} maxWidth={'calc(100% - 24px)'}>
             <StyledCardRow>
