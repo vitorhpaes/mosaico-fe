@@ -4,6 +4,9 @@ import { isMobile } from '@app/driver/device'
 
 // create mocked mobile screen if current device is not mobile
 const StyledMobileScreen = styled.div`
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
     width: ${isMobile ? '100vw' : '375px'};
     height: ${isMobile ? '100vh' : '664px'};
     margin-left: auto;
