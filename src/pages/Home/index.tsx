@@ -1,8 +1,11 @@
 import React from 'react'
 import withLayoutConfig from '../withLayoutConfig'
-import { Typography } from '@ds'
+import { Spacing, TextField, TextFieldIconWrapper, Typography } from '@ds'
+
+import { FiSearch } from 'react-icons/fi'
 
 import PageContainer from '@components/Layout/PageContainer'
+import SearchInput from '@app/components/SearchInput'
 
 const Home: React.FC = () => {
     return (
@@ -11,6 +14,9 @@ const Home: React.FC = () => {
             <Typography variant="title" size={24} transform={'none'}>
                 What are you looking for today?
             </Typography>
+            <Spacing my="large">
+                <SearchInput />
+            </Spacing>
         </PageContainer>
     )
 }
