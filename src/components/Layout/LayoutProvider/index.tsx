@@ -9,7 +9,8 @@ const LayoutProvider: React.FC = () => {
 
     return (
         <>
-            {navbarType === 'default' ? <DefaultNavbar /> : <StackNavbar />} 
+            {navbarType === 'default' && <DefaultNavbar />}
+            {navbarType === 'stack' && <StackNavbar />}
             <Outlet />
         </>
     )

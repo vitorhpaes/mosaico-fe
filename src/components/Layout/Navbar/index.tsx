@@ -31,4 +31,4 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
 export default Navbar
 
 export { default as DefaultNavbar } from './DefaultNavbar'
-export { default as StackNavbar } from './DefaultNavbar'
+export { default as StackNavbar } from './StackNavbar'

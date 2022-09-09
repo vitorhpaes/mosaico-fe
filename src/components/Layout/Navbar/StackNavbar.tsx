@@ -1,7 +1,15 @@
-import React from 'react';
+import React from 'react'
+import Navbar from '.'
+
+import { FiChevronLeft, FiShoppingCart } from 'react-icons/fi'
 
 const StackNavbar: React.FC = () => {
-  return <div />;
+    return (
+        <Navbar>
+            <FiChevronLeft size={20} />
+            <FiShoppingCart size={20} />
+        </Navbar>
+    )
 }
 
-export default StackNavbar;
+export default StackNavbar
