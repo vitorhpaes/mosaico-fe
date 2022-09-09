@@ -138,6 +138,7 @@ module.exports = function build(_: any, args: WebpackArgumentsProps) {
             alias: {
                 react: path.join(__dirname, 'node_modules', 'react'),
                 '@app': path.join(__dirname, './src'),
+                '@images': path.join(__dirname, './src/assets/images'),
                 '@ds': path.join(
                     __dirname,
                     './src/components/DesignSystem/index'

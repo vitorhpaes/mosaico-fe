@@ -25,7 +25,8 @@
             "@services/*": ["./src/services/*"],
             "@config/*": ["./config/*"],
             "@constants/*": ["./config/constants/*"],
-            "@types/*": ["./config/types/*"]
+            "@types/*": ["./config/types/*"],
+            "@images/*": ["./src/assets/images/*"],
         },
         "lib": ["es2017", "dom"],
         "types": ["react", "node"]
