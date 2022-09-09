@@ -7,7 +7,7 @@ import styled, {
 } from 'styled-components'
 
 interface StyledTypographyProps {
-    color?: PaletteKey
+    color?: PaletteKey | 'inherit'
     size?: number
     weight?: number
     transform?: 'uppercase' | 'lowercase' | 'none'
@@ -36,15 +36,19 @@ const getStyleProp = (
 
 const getColorProp = (
     theme: DefaultTheme,
-    color: PaletteKey,
+    color: PaletteKey | 'inherit',
     variant?: TypographyKey
 ) => {
+    if (color === 'inherit') return 'inherit';
     if (color) return theme.palette[color].index
     if (variant) return theme.typography[variant].color
     return theme.typography.default.color
 }
 
 const CreateStyledTypography = (tag: any) => styled(tag)<StyledTypographyProps>`
+    margin-top: 0;
+    margin-bottom: 0;
+
     color: ${({ theme, variant, color }) =>
         getColorProp(theme, color, variant)};
 
