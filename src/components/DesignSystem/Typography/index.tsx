@@ -11,6 +11,7 @@ interface StyledTypographyProps {
     size?: number
     weight?: number
     transform?: 'uppercase' | 'lowercase' | 'none'
+    family?: 'DM Sans' | 'Montserrat'
     variant?: TypographyKey
 }
 
@@ -39,7 +40,7 @@ const getColorProp = (
     color: PaletteKey | 'inherit',
     variant?: TypographyKey
 ) => {
-    if (color === 'inherit') return 'inherit';
+    if (color === 'inherit') return 'inherit'
     if (color) return theme.palette[color].index
     if (variant) return theme.typography[variant].color
     return theme.typography.default.color
@@ -48,6 +49,8 @@ const getColorProp = (
 const CreateStyledTypography = (tag: any) => styled(tag)<StyledTypographyProps>`
     margin-top: 0;
     margin-bottom: 0;
+
+    font-family: ${({ family }) => family};
 
     color: ${({ theme, variant, color }) =>
         getColorProp(theme, color, variant)};
@@ -62,9 +65,16 @@ const CreateStyledTypography = (tag: any) => styled(tag)<StyledTypographyProps>`
         getStyleProp('transform', theme, variant, transform)};
 `
 
-const Typography: React.FC<TypographyProps> = ({ tag, children, ...props }) => {
+const Typography: React.FC<TypographyProps> = ({
+    tag,
+    children,
+    family = 'DM Sans',
+    ...props
+}) => {
     const theme = useTheme()
     const variant = props.variant
+
+    const fontFamily = `'${family}', sans-serif`
 
     const htmlFinalTag = tag
         ? tag
@@ -74,7 +84,11 @@ const Typography: React.FC<TypographyProps> = ({ tag, children, ...props }) => {
 
     const StyledTypography = CreateStyledTypography(htmlFinalTag)
 
-    return <StyledTypography {...props}>{children}</StyledTypography>
+    return (
+        <StyledTypography {...props} family={fontFamily}>
+            {children}
+        </StyledTypography>
+    )
 }
 
 export default Typography
