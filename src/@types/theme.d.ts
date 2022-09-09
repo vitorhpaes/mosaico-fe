@@ -47,6 +47,7 @@ declare module 'styled-components' {
         hugeX: number
         hugeXX: number
         hugeXXX: number
+        auto: 'auto'
     }
     type SpacingKey = keyof Spacing
 

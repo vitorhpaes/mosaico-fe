@@ -31,6 +31,7 @@ const theme: DefaultTheme = {
         },
     },
     space: {
+        auto: 'auto',
         none: 0,
         nano: 2,
         micro: 4,
