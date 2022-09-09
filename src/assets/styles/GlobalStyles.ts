@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'DM Sans', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        letter-spacing: 0.2px;
     }
 
     body {
