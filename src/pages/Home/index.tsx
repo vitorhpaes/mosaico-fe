@@ -41,11 +41,12 @@ const Home: React.FC = () => {
                 </Spacing>
             </PageContainer>
             <SectionContainer pr="0" height="100%">
-                <ChipRow>
+                <ChipRow pr="large">
                     {isSuccessCategories &&
                         categories?.length &&
                         categories.map((category) => (
                             <Chip
+                                onClick={() => setSelectedCategory(category)}
                                 key={category}
                                 label={category}
                                 disabled={category !== selectedCategory}

@@ -16,6 +16,7 @@ interface ChipProps {
     label?: string
     disabled?: boolean
     children?: React.ReactNode
+    onClick: () => void
 }
 
 const StyledChip = styled.div<StyledChipProps>`
@@ -72,6 +73,7 @@ const Chip: React.FC<ChipProps> = ({
     size = 'md',
     color = 'main',
     disabled = false,
+    onClick,
     label,
 }) => {
     const { X: spacingX, Y: spacingY } = spacingMap[size]
@@ -88,6 +90,7 @@ const Chip: React.FC<ChipProps> = ({
             disabled={disabled}
             color={color}
             fontColor={fontColor}
+            onClick={onClick}
         >
             {!!children && !label && children}
             {label && (
