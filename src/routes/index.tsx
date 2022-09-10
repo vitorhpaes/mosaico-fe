@@ -19,7 +19,7 @@ const SystemRoutes: React.FC = () => {
             <Routes>
                 <Route path="/" element={<LayoutProvider />}>
                     <Route index element={<Home />} />
-                    <Route path="product/:productName/:productId" element={<Product navbar="stack" />} />
+                    <Route path="product/:productId" element={<Product navbar="stack" />} />
                 </Route>
             </Routes>
         </BrowserRouter>
