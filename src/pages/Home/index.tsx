@@ -9,6 +9,8 @@ import SectionContainer from '@components/SectionContainer'
 import ProductCard from '@app/components/ProductCard'
 import images from '@images/urls.json'
 import SectionTitle from '@components/SectionTitle'
+import CategoryProductsSection from './CategoryProductsSection'
+
 import { useCategories } from '@services/queries/categories'
 
 const Home: React.FC = () => {
@@ -39,11 +41,18 @@ const Home: React.FC = () => {
             </PageContainer>
             <SectionContainer pr="0" height="100%">
                 <ChipRow>
-                    <Chip label="Headphone" />
-                    <Chip label="Headband" disabled />
-                    <Chip label="Earpads" disabled />
-                    <Chip label="Cable" disabled />
+                    {isSuccessCategories &&
+                        categories?.length &&
+                        categories.map((category) => (
+                            <Chip
+                                key={category}
+                                label={category}
+                                disabled={category !== selectedCategory}
+                            />
+                        ))}
                 </ChipRow>
+
+                <CategoryProductsSection category={selectedCategory} />
 
                 <SectionTitle
                     title="Featured Products"
@@ -53,13 +62,40 @@ const Home: React.FC = () => {
                     }}
                 />
 
-                    <ProductCard
-                        product={{
-                            name: 'TMA-2 Modular Headphone',
-                            link: 'https://google.com',
-                            picture: images.headphone,
-                        }}
-                    />
+                <Spacing my="large">
+                    <Spacing mr="standard">
+                        <ProductCard
+                            direction="vertical"
+                            product={{
+                                name: 'TMA-2 HD Wireless',
+                                link: 'https://google.com',
+                                picture: images.headphone,
+                                price: 350,
+                            }}
+                        />
+                    </Spacing>
+                    <Spacing mr="standard">
+                        <ProductCard
+                            direction="vertical"
+                            product={{
+                                name: 'TMA-2 HD Wireless',
+                                link: 'https://google.com',
+                                picture: images.headphone,
+                                price: 25,
+                            }}
+                        />
+                    </Spacing>
+                    <Spacing mr="standard">
+                        <ProductCard
+                            direction="vertical"
+                            product={{
+                                name: 'TMA-2 HD Wireless',
+                                link: 'https://google.com',
+                                picture: images.headphone,
+                                price: 125,
+                            }}
+                        />
+                    </Spacing>
                 </Spacing>
             </SectionContainer>
         </>
