@@ -2,15 +2,23 @@ import React from 'react'
 import { Spacing } from '@ds'
 import SectionTitle from '@components/SectionTitle'
 import ProductCard from '@components/ProductCard'
-import images from '@images/urls.json'
 
 import { useFeaturedProducts } from '@services/queries/products'
+import styled from 'styled-components'
 
 interface ProductsSmallSectionProps {
     title: string
 }
 
-const ProductsSmallSection: React.FC<ProductsSmallSectionProps> = ({ title }) => {
+const StyledCardRow = styled.div`
+    max-width: 100%;
+    overflow-x: auto;
+    display: flex;
+`
+
+const ProductsSmallSection: React.FC<ProductsSmallSectionProps> = ({
+    title,
+}) => {
     const {
         data: products,
         isLoading: isLoadingProducts,
@@ -28,20 +36,22 @@ const ProductsSmallSection: React.FC<ProductsSmallSectionProps> = ({ title }) =>
             />
 
             <Spacing my="large">
-                {isSuccessProducts &&
-                    products?.map((product) => (
-                        <Spacing mr="standard" key={product.id}>
-                            <ProductCard
-                                direction="vertical"
-                                product={{
-                                    name: product.minifiedTitle,
-                                    link: product.url,
-                                    picture: product.image,
-                                    price: product.price,
-                                }}
-                            />
-                        </Spacing>
-                    ))}
+                <StyledCardRow>
+                    {isSuccessProducts &&
+                        products?.map((product) => (
+                            <Spacing mr="standard" key={product.id}>
+                                <ProductCard
+                                    direction="vertical"
+                                    product={{
+                                        name: product.minifiedTitle,
+                                        link: product.url,
+                                        picture: product.image,
+                                        price: product.price,
+                                    }}
+                                />
+                            </Spacing>
+                        ))}
+                </StyledCardRow>
             </Spacing>
         </>
     )

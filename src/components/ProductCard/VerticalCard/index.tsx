@@ -17,11 +17,13 @@ const StyledProductImageWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100%;
 
     img {
         margin-left: auto;
         margin-right: auto;
         max-height: 125px;
+        max-width: 125px;
         width: auto;
         height: auto;
     }
@@ -34,16 +36,15 @@ const StyledTextContent = styled(Spacing)`
 `
 
 const VerticalCard: React.FC<ProductCardProps> = ({ product }) => {
-
     const navigate = useNavigate()
-    const redirectToProductPage = () => navigate(product.link);
+    const redirectToProductPage = () => navigate(product.link)
 
     return (
         <StyledCard
             px="medium"
             py="standard"
             width={'155px'}
-            height={'fit-content'}
+            height={'100%'}
             borderRadius={15}
             onClick={redirectToProductPage}
         >
