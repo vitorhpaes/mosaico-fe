@@ -31,5 +31,7 @@ export const fakeStoreRequest = async (
     options: RequestProps = {}
 ) => await request(fakeStoreBaseURL, endpoint, options)
 
-export const mockApiRequest = async (endpoint: string, options: RequestProps) =>
-    await request(mockApiBaseURL, endpoint, options)
+export const mockApiRequest = async (
+    endpoint: string,
+    options: RequestProps = {}
+) => await request(mockApiBaseURL, endpoint, options)
