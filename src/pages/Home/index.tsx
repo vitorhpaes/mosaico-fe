@@ -1,14 +1,31 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+
 import withLayoutConfig from '../withLayoutConfig'
 import { Chip, ChipRow, Spacing, Typography } from '@ds'
 
 import PageContainer from '@components/Layout/PageContainer'
 import SearchInput from '@components/SearchInput'
 import SectionContainer from '@components/SectionContainer'
-import { ProductCard } from '@app/components/ProductCard'
+import ProductCard from '@app/components/ProductCard'
 import images from '@images/urls.json'
+import SectionTitle from '@components/SectionTitle'
+import { useCategories } from '@services/queries/categories'
 
 const Home: React.FC = () => {
+    const [selectedCategory, setSelectedCategory] = useState<string>()
+
+    const {
+        data: categories,
+        isLoading: isLoadingCategories,
+        isSuccess: isSuccessCategories,
+    } = useCategories()
+
+    useEffect(() => {
+        if (selectedCategory || !categories || !categories.length) return
+        const firstCategory = categories[0]
+        setSelectedCategory(firstCategory)
+    }, [categories])
+
     return (
         <>
             <PageContainer>
@@ -28,7 +45,14 @@ const Home: React.FC = () => {
                     <Chip label="Cable" disabled />
                 </ChipRow>
 
-                <Spacing my={'large'}>
+                <SectionTitle
+                    title="Featured Products"
+                    redirect={{
+                        text: 'See All',
+                        target: 'products',
+                    }}
+                />
+
                     <ProductCard
                         product={{
                             name: 'TMA-2 Modular Headphone',

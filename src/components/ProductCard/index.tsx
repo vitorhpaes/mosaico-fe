@@ -9,7 +9,7 @@ export const StyledCard = styled.div<SpaceProps | LayoutProps | BorderProps>`
     border-radius: 10px;
     ${space};
     ${layout};
-    ${border}
+    ${border};
 `
 
 export interface ProductCardProps {
