@@ -34,7 +34,7 @@ const CategoryProductsSection: React.FC<CategoryProductsSectionProps> = ({
                                 direction="horizontal"
                                 product={{
                                     name: product.minifiedTitle,
-                                    link: product.title,
+                                    link: product.url,
                                     picture: product.image,
                                 }}
                             />

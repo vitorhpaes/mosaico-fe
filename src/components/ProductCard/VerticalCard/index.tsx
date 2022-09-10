@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Spacing, Typography } from '@ds'
 
 import { ProductCardProps, StyledCard } from './../index'
+import { useNavigate } from 'react-router-dom'
 
 const StyledCardRowColumn = styled.div`
     display: flex;
@@ -33,8 +34,19 @@ const StyledTextContent = styled(Spacing)`
 `
 
 const VerticalCard: React.FC<ProductCardProps> = ({ product }) => {
+
+    const navigate = useNavigate()
+    const redirectToProductPage = () => navigate(product.link);
+
     return (
-        <StyledCard px="medium" py="standard" width={'155px'} height={'fit-content'} borderRadius={15}>
+        <StyledCard
+            px="medium"
+            py="standard"
+            width={'155px'}
+            height={'fit-content'}
+            borderRadius={15}
+            onClick={redirectToProductPage}
+        >
             <StyledCardRowColumn>
                 <StyledProductImageWrapper>
                     <img src={product.picture} />

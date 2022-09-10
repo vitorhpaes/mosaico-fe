@@ -31,7 +31,7 @@ const FeaturedProductsSection: React.FC = () => {
                                 direction="vertical"
                                 product={{
                                     name: product.minifiedTitle,
-                                    link: 'https://google.com',
+                                    link: product.url,
                                     picture: product.image,
                                     price: product.price,
                                 }}
