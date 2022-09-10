@@ -1,15 +1,16 @@
 import React, { useState, useMemo } from 'react'
+import styled from 'styled-components'
 import { useParams } from 'react-router-dom'
 import withLayoutConfig from '../withLayoutConfig'
 
-import PageContainer from '@app/components/Layout/PageContainer'
+import PageContainer from '@components/Layout/PageContainer'
 import { Button, Spacing, TabMenu, TabMenuItem, Typography } from '@ds'
 
-import { useProduct } from '@app/services/queries/products'
-import { TabContainer } from '@app/components/DesignSystem/Tabs'
-import SectionContainer from '@app/components/SectionContainer'
-import styled from 'styled-components'
-import ProductsSmallSection from '@app/components/ProductsSmallSection'
+import { useProduct } from '@services/queries/products'
+import { TabContainer } from '@components/DesignSystem/Tabs'
+import SectionContainer from '@components/SectionContainer'
+import ProductsSmallSection from '@components/ProductsSmallSection'
+import ImagesSection from './ImagesSection'
 
 const StyledButtonSection = styled(SectionContainer)`
     position: fixed;
@@ -75,7 +76,7 @@ const Product: React.FC = () => {
                         ))}
                     </TabMenu>
                     <TabContainer active={tabs[0].active}>
-                        mocked tab 1
+                        <ImagesSection images={product.images} />
                     </TabContainer>
                     <TabContainer active={tabs[1].active}>
                         mocked tab 2
