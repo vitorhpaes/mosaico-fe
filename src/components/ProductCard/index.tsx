@@ -17,7 +17,7 @@ export interface ProductCardProps {
         name: string
         picture: string
         link: string
-        price?: number
+        price?: string
     }
 }
 

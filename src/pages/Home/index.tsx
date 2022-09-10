@@ -12,6 +12,7 @@ import SectionTitle from '@components/SectionTitle'
 import CategoryProductsSection from './CategoryProductsSection'
 
 import { useCategories } from '@services/queries/categories'
+import FeaturedProductsSection from './FeaturedProductsSection'
 
 const Home: React.FC = () => {
     const [selectedCategory, setSelectedCategory] = useState<string>()
@@ -54,49 +55,7 @@ const Home: React.FC = () => {
 
                 <CategoryProductsSection category={selectedCategory} />
 
-                <SectionTitle
-                    title="Featured Products"
-                    redirect={{
-                        text: 'See All',
-                        target: 'products',
-                    }}
-                />
-
-                <Spacing my="large">
-                    <Spacing mr="standard">
-                        <ProductCard
-                            direction="vertical"
-                            product={{
-                                name: 'TMA-2 HD Wireless',
-                                link: 'https://google.com',
-                                picture: images.headphone,
-                                price: 350,
-                            }}
-                        />
-                    </Spacing>
-                    <Spacing mr="standard">
-                        <ProductCard
-                            direction="vertical"
-                            product={{
-                                name: 'TMA-2 HD Wireless',
-                                link: 'https://google.com',
-                                picture: images.headphone,
-                                price: 25,
-                            }}
-                        />
-                    </Spacing>
-                    <Spacing mr="standard">
-                        <ProductCard
-                            direction="vertical"
-                            product={{
-                                name: 'TMA-2 HD Wireless',
-                                link: 'https://google.com',
-                                picture: images.headphone,
-                                price: 125,
-                            }}
-                        />
-                    </Spacing>
-                </Spacing>
+                <FeaturedProductsSection />
             </SectionContainer>
         </>
     )
