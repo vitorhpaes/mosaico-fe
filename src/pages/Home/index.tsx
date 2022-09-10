@@ -6,13 +6,10 @@ import { Chip, ChipRow, Spacing, Typography } from '@ds'
 import PageContainer from '@components/Layout/PageContainer'
 import SearchInput from '@components/SearchInput'
 import SectionContainer from '@components/SectionContainer'
-import ProductCard from '@app/components/ProductCard'
-import images from '@images/urls.json'
-import SectionTitle from '@components/SectionTitle'
 import CategoryProductsSection from './CategoryProductsSection'
 
 import { useCategories } from '@services/queries/categories'
-import FeaturedProductsSection from './FeaturedProductsSection'
+import ProductsSmallSection from '@components/ProductsSmallSection'
 
 const Home: React.FC = () => {
     const [selectedCategory, setSelectedCategory] = useState<string>()
@@ -56,7 +53,7 @@ const Home: React.FC = () => {
 
                 <CategoryProductsSection category={selectedCategory} />
 
-                <FeaturedProductsSection />
+                <ProductsSmallSection title="Featured Products"/>
             </SectionContainer>
         </>
     )

@@ -6,7 +6,11 @@ import images from '@images/urls.json'
 
 import { useFeaturedProducts } from '@services/queries/products'
 
-const FeaturedProductsSection: React.FC = () => {
+interface ProductsSmallSectionProps {
+    title: string
+}
+
+const ProductsSmallSection: React.FC<ProductsSmallSectionProps> = ({ title }) => {
     const {
         data: products,
         isLoading: isLoadingProducts,
@@ -16,7 +20,7 @@ const FeaturedProductsSection: React.FC = () => {
     return (
         <>
             <SectionTitle
-                title="Featured Products"
+                title={title}
                 redirect={{
                     text: 'See All',
                     target: 'products',
@@ -43,4 +47,4 @@ const FeaturedProductsSection: React.FC = () => {
     )
 }
 
-export default FeaturedProductsSection
+export default ProductsSmallSection
