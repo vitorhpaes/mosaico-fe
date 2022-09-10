@@ -139,6 +139,7 @@ module.exports = function build(_: any, args: WebpackArgumentsProps) {
                 react: path.join(__dirname, 'node_modules', 'react'),
                 '@app': path.join(__dirname, './src'),
                 '@images': path.join(__dirname, './src/assets/images'),
+                '@helpers': path.join(__dirname, './src/helpers'),
                 '@ds': path.join(
                     __dirname,
                     './src/components/DesignSystem/index'

@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { space, SpaceProps } from 'styled-system'
 
-const StyledChipRow = styled.div`
+const StyledChipRow = styled.div<SpaceProps>`
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -13,7 +14,8 @@ const StyledChipRow = styled.div`
         display: none;
     }
 
-    gap: ${({theme}) => theme.applySpace('small')};
+    gap: ${({ theme }) => theme.applySpace('small')};
+    ${space}
 `
 
 export default StyledChipRow
