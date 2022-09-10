@@ -8,31 +8,38 @@ import { ProductCardProps, StyledCard } from './../index'
 
 const StyledCardRow = styled.div`
     max-width: 100%;
+    height: 100%;
     display: flex;
     justify-content: space-between;
 `
 
 const StyledProductImageWrapper = styled.div`
-    width: 100%;
-    height: auto;
+    max-width: 40%;
+    max-height: 135px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     img {
-        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
         height: auto;
     }
 `
 
-const StyledTextContent = styled.div`
+const StyledTextContent = styled(Spacing)`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    max-width: 60%;
 `
 
 const HorizontalCard: React.FC<ProductCardProps> = ({ product }) => {
     return (
-        <StyledCard px="large" py={20} maxWidth={'calc(100% - 24px)'}>
+        <StyledCard px="large" py={20} width={'320px'}>
             <StyledCardRow>
-                <StyledTextContent>
+                <StyledTextContent pr="small">
                     <Typography
                         variant="title"
                         size={22}

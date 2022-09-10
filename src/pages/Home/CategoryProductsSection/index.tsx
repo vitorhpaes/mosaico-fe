@@ -33,7 +33,7 @@ const CategoryProductsSection: React.FC<CategoryProductsSectionProps> = ({
                             <ProductCard
                                 direction="horizontal"
                                 product={{
-                                    name: product.title.split(' ')[0],
+                                    name: product.minifiedTitle,
                                     link: product.title,
                                     picture: product.image,
                                 }}
