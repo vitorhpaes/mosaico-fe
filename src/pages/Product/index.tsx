@@ -1,13 +1,26 @@
-import React from 'react'
+import React, { useState, useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 import withLayoutConfig from '../withLayoutConfig'
 
 import PageContainer from '@app/components/Layout/PageContainer'
-import { Typography } from '@ds'
+import { Button, Spacing, TabMenu, TabMenuItem, Typography } from '@ds'
+
 import { useProduct } from '@app/services/queries/products'
+import { TabContainer } from '@app/components/DesignSystem/Tabs'
+import SectionContainer from '@app/components/SectionContainer'
+import styled from 'styled-components'
+import ProductsSmallSection from '@app/components/ProductsSmallSection'
+
+const StyledButtonSection = styled(SectionContainer)`
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+`
 
 const Product: React.FC = () => {
     const { productId } = useParams()
+    const [activeTab, setActiveTab] = useState(0)
 
     const {
         data: product,
@@ -15,17 +28,78 @@ const Product: React.FC = () => {
         isSuccess: isSuccessProduct,
     } = useProduct(productId)
 
+    const tabs = useMemo(
+        () => [
+            {
+                index: 0,
+                title: 'Overview',
+                active: activeTab === 0,
+                onClick: () => setActiveTab(0),
+            },
+            {
+                index: 1,
+                title: 'Features',
+                active: activeTab === 1,
+                onClick: () => setActiveTab(1),
+            },
+            {
+                index: 2,
+                title: 'Specification',
+                active: activeTab === 2,
+                onClick: () => setActiveTab(2),
+            },
+        ],
+        [activeTab]
+    )
+
     if (isLoadingProduct) return <>Loading...</>
 
     return (
-        <PageContainer>
-            <Typography color="main" variant="subtitle" weight={700}>
-                USD {product.price}
-            </Typography>
-            <Typography variant="title" family="Montserrat">
-                {product.title}
-            </Typography>
-        </PageContainer>
+        <>
+            <PageContainer>
+                <Typography color="main" variant="subtitle" weight={700}>
+                    USD {product.price}
+                </Typography>
+                <Typography variant="title" family="Montserrat">
+                    {product.title}
+                </Typography>
+                <Spacing mt="largeX" flexDirection={'column'}>
+                    <TabMenu>
+                        {tabs.map((tab) => (
+                            <TabMenuItem
+                                title={tab.title}
+                                active={tab.active}
+                                key={tab.index}
+                                onClick={tab.onClick}
+                            />
+                        ))}
+                    </TabMenu>
+                    <TabContainer active={tabs[0].active}>
+                        mocked tab 1
+                    </TabContainer>
+                    <TabContainer active={tabs[1].active}>
+                        mocked tab 2
+                    </TabContainer>
+                    <TabContainer active={tabs[2].active}>
+                        mocked tab 3
+                    </TabContainer>
+                </Spacing>
+            </PageContainer>
+
+            <SectionContainer color="default" borderRadius={0}>
+                <ProductsSmallSection title="Another Products" />
+            </SectionContainer>
+
+            <StyledButtonSection color="paper" borderRadius={0} padding={0}>
+                <Spacing py="largeX" px="large">
+                    <Button fullWidth color="main">
+                        <Typography weight={700} color="inherit">
+                            Add to cart
+                        </Typography>
+                    </Button>
+                </Spacing>
+            </StyledButtonSection>
+        </>
     )
 }
 
