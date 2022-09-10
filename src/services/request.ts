@@ -1,8 +1,8 @@
 import { getCompleteURL } from '@app/helpers/queryParams'
 
-interface FakeStoreRequestProps {
+export interface FakeStoreRequestProps {
     method?: 'GET' | 'POST' | 'PATCH' | 'PUT'
-    body?: JSON
+    body?: Object
     params?: { [key: string]: any } | null
 }
 
