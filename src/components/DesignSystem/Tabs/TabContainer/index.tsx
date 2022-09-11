@@ -9,7 +9,11 @@ interface TabContainerProps {
 
 const TabContainer: React.FC<TabContainerProps> = ({ children, active }) => {
     if (!active) return null
-    return <Spacing py="standard">{children}</Spacing>
+    return (
+        <Spacing py="standard" flexDirection={'column'}>
+            {children}
+        </Spacing>
+    )
 }
 
 export default TabContainer
