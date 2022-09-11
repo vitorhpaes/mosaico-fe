@@ -21,7 +21,7 @@ const Rating: React.FC<RatingProps> = ({ value }) => {
             isFilled ? (
                 <IoIosStar color={theme.palette.accent.main} />
             ) : (
-                <IoIosStarOutline color={theme.palette.accent.main} />
+                <IoIosStarOutline color={theme.palette.grey.main} />
             )
         )
     }
