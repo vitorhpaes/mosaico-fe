@@ -65,4 +65,5 @@ const HorizontalCard: React.FC<ProductCardProps> = ({ product }) => {
     )
 }
 
+export { default as Skeleton } from './Skeleton'
 export default HorizontalCard

@@ -4,6 +4,7 @@ import ProductCard from '@components/ProductCard'
 import styled from 'styled-components'
 
 import { useCategoryProducts } from '@services/queries/categories'
+import SkeletonContainer from '@app/components/SkeletonContainer'
 
 interface CategoryProductsSectionProps {
     category?: string
@@ -27,7 +28,15 @@ const CategoryProductsSection: React.FC<CategoryProductsSectionProps> = ({
     return (
         <Spacing my={'large'}>
             <StyledCardRow>
-                {isSuccessProducts &&
+                {isLoadingProducts && (
+                    <SkeletonContainer repeat={2}>
+                        <Spacing mr="small">
+                            <ProductCard loading direction="horizontal" />
+                        </Spacing>
+                    </SkeletonContainer>
+                )}
+                {!isLoadingProducts &&
+                    isSuccessProducts &&
                     products?.map((product) => (
                         <Spacing mr="small" key={product.id}>
                             <ProductCard
