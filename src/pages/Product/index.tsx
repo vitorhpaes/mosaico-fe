@@ -11,6 +11,7 @@ import { TabContainer } from '@components/DesignSystem/Tabs'
 import SectionContainer from '@components/SectionContainer'
 import ProductsSmallSection from '@components/ProductsSmallSection'
 import ImagesSection from './ImagesSection'
+import ReviewsSection from './ReviewsSection'
 
 const StyledButtonSection = styled(SectionContainer)`
     position: fixed;
@@ -77,6 +78,7 @@ const Product: React.FC = () => {
                     </TabMenu>
                     <TabContainer active={tabs[0].active}>
                         <ImagesSection images={product.images} />
+                        <ReviewsSection reviews={product?.reviews} />
                     </TabContainer>
                     <TabContainer active={tabs[1].active}>
                         mocked tab 2

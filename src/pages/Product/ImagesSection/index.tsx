@@ -20,7 +20,7 @@ const StyledImageCard = styled.div`
     justify-content: center;
 
     background-color: ${({ theme }) => theme.palette.background.default};
-    border-radius: ${({theme}) => theme.applySpace('medium')};
+    border-radius: ${({ theme }) => theme.applySpace('medium')};
 
     img {
         width: auto;
@@ -32,15 +32,17 @@ const StyledImageCard = styled.div`
 
 const ImagesSection: React.FC<ImagesSectionProps> = ({ images }) => {
     return (
-        <StyledCardRow>
-            {images.map((image, index) => (
-                <Spacing mr="small" key={index}>
-                    <StyledImageCard>
-                        <img src={image} />
-                    </StyledImageCard>
-                </Spacing>
-            ))}
-        </StyledCardRow>
+        <Spacing mb="small">
+            <StyledCardRow>
+                {images.map((image, index) => (
+                    <Spacing mr="small" key={index}>
+                        <StyledImageCard>
+                            <img src={image} />
+                        </StyledImageCard>
+                    </Spacing>
+                ))}
+            </StyledCardRow>
+        </Spacing>
     )
 }
 
