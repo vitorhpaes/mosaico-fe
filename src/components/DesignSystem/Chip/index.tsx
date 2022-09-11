@@ -1,6 +1,8 @@
+import { WithLoading } from '@app/@types/snippets'
 import React from 'react'
 import styled, { PaletteKey, SpacingKey, useTheme } from 'styled-components'
 import Typography from '../Typography'
+import Skeleton from './Skeleton'
 
 interface StyledChipProps {
     color?: PaletteKey
@@ -18,6 +20,8 @@ interface ChipProps {
     children?: React.ReactNode
     onClick: () => void
 }
+
+type ChipPropsWithLoading = WithLoading<ChipProps>
 
 const StyledChip = styled.div<StyledChipProps>`
     width: fit-content;
@@ -68,13 +72,14 @@ const spacingMap: SpacingMapProps = {
     },
 }
 
-const Chip: React.FC<ChipProps> = ({
+const Chip: React.FC<ChipPropsWithLoading> = ({
     children,
     size = 'md',
     color = 'main',
     disabled = false,
     onClick,
     label,
+    loading = false
 }) => {
     const { X: spacingX, Y: spacingY } = spacingMap[size]
     const theme = useTheme()
@@ -82,6 +87,8 @@ const Chip: React.FC<ChipProps> = ({
     const fontColor = ['main', 'accent'].includes(color)
         ? theme.palette.font.reverse
         : theme.palette.font.index
+    
+    if(loading) return <Skeleton />
 
     return (
         <StyledChip
