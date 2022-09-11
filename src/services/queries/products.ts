@@ -8,6 +8,8 @@ const fetchProducts = (params: Object) =>
 const fetchProduct = (productId: string) =>
     fakeStoreRequest(`/products/${productId}`)
 
+const fetchProductReviews = () => mockApiRequest('/reviews')
+
 export const useFeaturedProducts = () =>
     useQuery('featured-products', async () => {
         const response = await fetchProducts({
@@ -21,6 +23,8 @@ export const useProduct = (productId: string) =>
         ['single-product', productId],
         async () => {
             const response = await fetchProduct(productId)
+
+            response.reviews = await fetchProductReviews()
 
             return normalizeProduct(response)
         },
