@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import withLayoutConfig from '../withLayoutConfig'
 
 import PageContainer from '@components/Layout/PageContainer'
-import { Button, Spacing, TabMenu, TabMenuItem, Typography } from '@ds'
+import { Button, Loader, Spacing, TabMenu, TabMenuItem, Typography } from '@ds'
 
 import { useProduct } from '@services/queries/products'
 import { TabContainer } from '@components/DesignSystem/Tabs'
@@ -54,7 +54,7 @@ const Product: React.FC = () => {
         [activeTab]
     )
 
-    if (isLoadingProduct) return <>Loading...</>
+    if (isLoadingProduct) return <Loader />
 
     return (
         <>
