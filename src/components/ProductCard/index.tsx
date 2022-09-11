@@ -1,8 +1,16 @@
 import React from 'react'
+import { WithLoading } from '@app/@types/snippets'
 import styled from 'styled-components'
-import { space, SpaceProps, layout, LayoutProps, border, BorderProps } from 'styled-system'
-import HorizontalCard from './HorizontalCard'
-import VerticalCard from './VerticalCard'
+import {
+    space,
+    SpaceProps,
+    layout,
+    LayoutProps,
+    border,
+    BorderProps,
+} from 'styled-system'
+import HorizontalCard, { HorizontalSkeleton } from './HorizontalCard'
+import VerticalCard, { VerticalSkeleton } from './VerticalCard'
 
 export const StyledCard = styled.div<SpaceProps | LayoutProps | BorderProps>`
     background-color: ${({ theme }) => theme.palette.background.paper};
@@ -13,7 +21,7 @@ export const StyledCard = styled.div<SpaceProps | LayoutProps | BorderProps>`
 `
 
 export interface ProductCardProps {
-    product: {
+    product?: {
         name: string
         picture: string
         link: string
@@ -21,16 +29,24 @@ export interface ProductCardProps {
     }
 }
 
-interface ProductCardWrapperProps extends ProductCardProps {
+type ProductCardWrapperProps = {
     direction: 'horizontal' | 'vertical'
-}
+} & ProductCardProps
 
-const ProductCard: React.FC<ProductCardWrapperProps> = ({
+type ProductCardWrapperWithLoading = WithLoading<ProductCardWrapperProps>
+
+const ProductCard: React.FC<ProductCardWrapperWithLoading> = ({
     direction,
+    loading = false,
     ...props
 }) => {
-    if (direction === 'horizontal') return <HorizontalCard {...props} />
-    return <VerticalCard {...props} />
+    if (loading) {
+        if (direction === 'vertical') return <VerticalSkeleton />
+        if (direction === 'horizontal') return <HorizontalSkeleton />
+    } else {
+        if (direction === 'horizontal') return <HorizontalCard {...props} />
+        if (direction === 'vertical') return <VerticalCard {...props} />
+    }
 }
 
 export default ProductCard

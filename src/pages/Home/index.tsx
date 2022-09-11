@@ -10,6 +10,7 @@ import CategoryProductsSection from './CategoryProductsSection'
 
 import { useCategories } from '@services/queries/categories'
 import ProductsSmallSection from '@components/ProductsSmallSection'
+import SkeletonContainer from '@app/components/SkeletonContainer'
 
 const Home: React.FC = () => {
     const [selectedCategory, setSelectedCategory] = useState<string>()
@@ -39,6 +40,9 @@ const Home: React.FC = () => {
             </PageContainer>
             <SectionContainer pr="0" height="100%">
                 <ChipRow pr="large">
+                    {isLoadingCategories && <SkeletonContainer repeat={4}>
+                        <Chip loading/>
+                    </SkeletonContainer>}
                     {isSuccessCategories &&
                         categories?.length &&
                         categories.map((category) => (

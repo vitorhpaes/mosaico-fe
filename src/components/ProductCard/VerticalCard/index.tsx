@@ -64,3 +64,4 @@ const VerticalCard: React.FC<ProductCardProps> = ({ product }) => {
 }
 
 export default VerticalCard
+export { default as VerticalSkeleton } from './Skeleton'

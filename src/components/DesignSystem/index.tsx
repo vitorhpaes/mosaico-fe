@@ -5,6 +5,7 @@ export { default as Link } from './Link'
 export { default as Divisor } from './Divisor'
 export { default as Button } from './Button'
 export { default as Rating } from './Rating'
+export { default as Loader } from './Loader'
 
 export { default as TabMenu, TabMenuItem } from './Tabs'
 
