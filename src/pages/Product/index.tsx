@@ -87,7 +87,11 @@ const Product: React.FC = () => {
                 </Spacing>
             </PageContainer>
 
-            <SectionContainer color="default" borderRadius={0}>
+            <SectionContainer
+                color="default"
+                borderRadius={0}
+                marginBottom={'hugeXX'}
+            >
                 <ProductsSmallSection title="Another Products" />
             </SectionContainer>
 
