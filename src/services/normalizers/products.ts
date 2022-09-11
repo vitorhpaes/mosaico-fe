@@ -1,5 +1,5 @@
 import images from '@images/urls.json'
-import { randomizeInt } from './../../helpers/randomize';
+import { randomizeBoolean, randomizeInt } from './../../helpers/randomize'
 
 export interface NormalizedReview {
     consumer: string
@@ -7,6 +7,7 @@ export interface NormalizedReview {
     date: Date
     review: string
     rating: number
+    images?: string[]
 }
 interface NormalizedProduct {
     id: number
@@ -44,7 +45,10 @@ const normalizeReview = (review: any): NormalizedReview => ({
     ...review,
     date: new Date(review.createdAt),
     review: review.description,
-    rating: randomizeInt(0, 5)
+    rating: randomizeInt(0, 5),
+    images: randomizeBoolean()
+        ? [images.headphone, images.headphoneConnector, images.headphone]
+        : undefined,
 })
 
 export const normalizeProducts = (products: any[]) =>
