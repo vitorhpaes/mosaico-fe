@@ -9,8 +9,8 @@ import {
     border,
     BorderProps,
 } from 'styled-system'
-import HorizontalCard, { Skeleton } from './HorizontalCard'
-import VerticalCard from './VerticalCard'
+import HorizontalCard, { HorizontalSkeleton } from './HorizontalCard'
+import VerticalCard, { VerticalSkeleton } from './VerticalCard'
 
 export const StyledCard = styled.div<SpaceProps | LayoutProps | BorderProps>`
     background-color: ${({ theme }) => theme.palette.background.paper};
@@ -40,11 +40,13 @@ const ProductCard: React.FC<ProductCardWrapperWithLoading> = ({
     loading = false,
     ...props
 }) => {
-    if (direction === 'horizontal' && !loading)
-        return <HorizontalCard {...props} />
-    else if (direction === 'horizontal') return <Skeleton />
-
-    return <VerticalCard {...props} />
+    if (loading) {
+        if (direction === 'vertical') return <VerticalSkeleton />
+        if (direction === 'horizontal') return <HorizontalSkeleton />
+    } else {
+        if (direction === 'horizontal') return <HorizontalCard {...props} />
+        if (direction === 'vertical') return <VerticalCard {...props} />
+    }
 }
 
 export default ProductCard

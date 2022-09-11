@@ -28,15 +28,14 @@ const CategoryProductsSection: React.FC<CategoryProductsSectionProps> = ({
     return (
         <Spacing my={'large'}>
             <StyledCardRow>
-                {isLoadingProducts && (
+                {isLoadingProducts || !category && (
                     <SkeletonContainer repeat={2}>
                         <Spacing mr="small">
                             <ProductCard loading direction="horizontal" />
                         </Spacing>
                     </SkeletonContainer>
                 )}
-                {!isLoadingProducts &&
-                    isSuccessProducts &&
+                {isSuccessProducts &&
                     products?.map((product) => (
                         <Spacing mr="small" key={product.id}>
                             <ProductCard

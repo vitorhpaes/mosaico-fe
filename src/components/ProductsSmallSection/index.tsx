@@ -5,6 +5,7 @@ import ProductCard from '@components/ProductCard'
 
 import { useFeaturedProducts } from '@services/queries/products'
 import styled from 'styled-components'
+import SkeletonContainer from '../SkeletonContainer'
 
 interface ProductsSmallSectionProps {
     title: string
@@ -37,6 +38,14 @@ const ProductsSmallSection: React.FC<ProductsSmallSectionProps> = ({
 
             <Spacing my="large">
                 <StyledCardRow>
+                    {isLoadingProducts && (
+                        <SkeletonContainer repeat={3}>
+                            <Spacing mr="standard">
+                                <ProductCard direction="vertical" loading />
+                            </Spacing>
+                        </SkeletonContainer>
+                    )}
+
                     {isSuccessProducts &&
                         products?.map((product) => (
                             <Spacing mr="standard" key={product.id}>
