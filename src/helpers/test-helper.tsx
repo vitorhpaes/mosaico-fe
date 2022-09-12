@@ -8,6 +8,7 @@ import { store } from '@app/state/store'
 import { QueryClientProvider } from 'react-query'
 import queryClient from '@services/queryClient'
 import GlobalStyle from '@app/assets/styles/GlobalStyles'
+import { BrowserRouter } from 'react-router-dom'
 
 interface WrapperProps {
     children: React.ReactNode
@@ -16,12 +17,14 @@ interface WrapperProps {
 export const TestElementWrapper: React.FC<WrapperProps> = ({ children }) => {
     return (
         <Provider store={store}>
-            <QueryClientProvider client={queryClient}>
-                <ThemeProvider theme={theme}>
-                    <GlobalStyle />
-                    {children}
-                </ThemeProvider>
-            </QueryClientProvider>
+            <BrowserRouter>
+                <QueryClientProvider client={queryClient}>
+                    <ThemeProvider theme={theme}>
+                        <GlobalStyle />
+                        {children}
+                    </ThemeProvider>
+                </QueryClientProvider>
+            </BrowserRouter>
         </Provider>
     )
 }
