@@ -3,8 +3,6 @@ import { render, screen } from '@testing-library/react'
 import Rating from './index'
 
 import { TestElementWrapper } from '@app/helpers/test-helper'
-import 'jest-styled-components'
-import '@testing-library/jest-dom/'
 
 interface DefaultComponent {
     value?: number

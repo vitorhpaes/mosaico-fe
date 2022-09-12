@@ -5,8 +5,8 @@ import Chip from './index'
 
 import { TestElementWrapper } from '@app/helpers/test-helper'
 import theme from '@app/assets/styles/theme'
-import 'jest-styled-components'
-import '@testing-library/jest-dom/'
+
+import '@testing-library/jest-dom'
 
 interface DefaultComponent {
     disabled?: boolean
