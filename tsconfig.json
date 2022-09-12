@@ -30,7 +30,7 @@
             "@types/*": ["./config/types/*"]
         },
         "lib": ["es2017", "dom"],
-        "types": ["react", "node"]
+        "types": ["jest", "react", "node"]
     },
     "ts-node": {
         "compilerOptions": {

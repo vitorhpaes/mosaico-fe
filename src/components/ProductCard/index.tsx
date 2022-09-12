@@ -33,7 +33,7 @@ type ProductCardWrapperProps = {
     direction: 'horizontal' | 'vertical'
 } & ProductCardProps
 
-type ProductCardWrapperWithLoading = WithLoading<ProductCardWrapperProps>
+export type ProductCardWrapperWithLoading = WithLoading<ProductCardWrapperProps>
 
 const ProductCard: React.FC<ProductCardWrapperWithLoading> = ({
     direction,

@@ -16,12 +16,12 @@ const Rating: React.FC<RatingProps> = ({ value }) => {
     const theme = useTheme()
     const stars = []
     for (let i = 0; i < 5; i++) {
-        const isFilled = value >= i
+        const isFilled = value > i
         stars.push(
             isFilled ? (
-                <IoIosStar color={theme.palette.accent.main} />
+                <IoIosStar color={theme.palette.accent.main} data-testid="star-filled"/>
             ) : (
-                <IoIosStarOutline color={theme.palette.grey.main} />
+                <IoIosStarOutline color={theme.palette.grey.main} data-testid="star-outlined"/>
             )
         )
     }
