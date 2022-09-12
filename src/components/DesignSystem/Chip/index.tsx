@@ -79,16 +79,18 @@ const Chip: React.FC<ChipPropsWithLoading> = ({
     disabled = false,
     onClick,
     label,
-    loading = false
+    loading = false,
 }) => {
     const { X: spacingX, Y: spacingY } = spacingMap[size]
     const theme = useTheme()
 
+    console.log({ theme }, theme.palette.main)
+
     const fontColor = ['main', 'accent'].includes(color)
         ? theme.palette.font.reverse
         : theme.palette.font.index
-    
-    if(loading) return <Skeleton />
+
+    if (loading) return <Skeleton />
 
     return (
         <StyledChip
