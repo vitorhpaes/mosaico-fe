@@ -1,10 +1,8 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 import Rating from './index'
 
 import { TestElementWrapper } from '@app/helpers/test-helper'
-import theme from '@app/assets/styles/theme'
 import 'jest-styled-components'
 import '@testing-library/jest-dom/'
 
